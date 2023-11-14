@@ -30,17 +30,18 @@ export async function GET(req: NextRequest) {
     client.calls
       .create({
         twiml: `<Response>
-                  <Gather input="dtmf" timeout="5" numDigits="1" action="/api/reminders" method="POST">
+                  <Gather input="dtmf" timeout="5" numDigits="1" action="${process.env.SERVER_URL}/api/reminders" method="POST">
                     <Say>Hello ${appointment.customer}, 
                       we would like to remind you of your ${appointment.reason} appointment tomorrow.
-                      Press 1 if you want to confirm or 2 if you want to cancel.
+                      Press 1 if you want to confirm or 0 if you want to cancel.
                     </Say>
                   </Gather>
                   <Say>
                     Sorry, we did not receive a confirmation. Goodbye!
                   </Say>
                 </Response>`,
-        to: appointment.phone,
+        // to: appointment.phone,
+        to: '+447835916970',
         from: process.env.TWILIO_PHONE,
       })
       .then((call: any) => {
