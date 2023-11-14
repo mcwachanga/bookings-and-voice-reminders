@@ -7,13 +7,6 @@ interface AppointmentProps {
   data: any[];
 }
 function AppointmentsTable(props: AppointmentProps) {
-  const [currentDate, setCurrentDate] = useState(new Date().toISOString());
-
-  const handleDateChange = (e: any) => {
-    setCurrentDate(e.toString());
-  };
-
-  console.log(props.data);
 
   return (
     <>
