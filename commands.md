@@ -14,6 +14,7 @@ import Calendar from 'react-calendar'
 npm install @twilio/voice-sdk --save
 npm install firebase twilio -s
 npm install prisma --save-dev
+npx prisma generate --schema src/prisma/schema.prisma
 npx prisma db push --schema src/prisma/schema.prisma
 npm install @prisma/client
 node v 18.11
