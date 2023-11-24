@@ -3,8 +3,7 @@ import moment from "moment";
 import { NextResponse } from "next/server";
 import { NextRequest } from "next/server";
 
-export async function POST(req: NextRequest) {
-    
+export async function POST(req: NextRequest) {    
   const { customer, phone, reason, bookedOn } = await req.json();
   var doc = await prisma.appointment.create({
     data: {

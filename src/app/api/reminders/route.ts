@@ -1,4 +1,5 @@
 import prisma from "@/lib/prisma";
+import { appointment } from "@/types/appointments";
 import moment from "moment";
 import { NextApiResponse } from "next";
 import { NextResponse } from "next/server";
@@ -26,7 +27,7 @@ export async function GET(req: NextRequest) {
     },
   });
 
-  appointments.map((appointment) => {
+  appointments.map((appointment: appointment) => {
     client.calls
       .create({
         twiml: `<Response>
